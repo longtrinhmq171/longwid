@@ -1,11 +1,12 @@
 import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import './components/widget-block.js';
-import './components/blog-block.js';
 import './components/widget-column.js';
-import './components/ad-widget.js';
-import './components/login-widget.js';
-import './components/currency-converter.js'
-import './components/music-widget.js'
+import './components/currency-converter.js';
+import './components/music-widget.js';
+import './components/calculator-web-component.js';
+import './components/memee.js';
+import './components/anonfiles.js';
+import './components/persistent-textarea.js';
 
 class Comp2110Portal extends LitElement {
   static properties = {
@@ -16,7 +17,6 @@ class Comp2110Portal extends LitElement {
     :host {
       overflow-y: scroll;
       scroll-behavior: smooth;
-      min-height: 100vh;   
       font-size: 14pt;
       color: #1a2b42;
       max-width: 960px;
@@ -43,10 +43,6 @@ class Comp2110Portal extends LitElement {
       background-size: cover;
       padding: 10px;
       filter: drop-shadow(2px 2px 2px #A4BBFF);
-    }
-
-    login-widget {
-      padding: 10px;
     }
     
     h1 {
@@ -77,18 +73,22 @@ class Comp2110Portal extends LitElement {
       border-radius: 10px;
       width: 700px;
     }
+    #fileUp {
+      border: 1px solid black;
+      padding: 10px;
+      margin: auto;
+    }
   `;
 
   constructor() {
     super();
-    this.header = 'COMP2110 Portal';
+    this.header = 'Long Widgets';
   }
 
   render() {
     return html`
       <header>
         <h1>${this.header}</h1>
-        <login-widget></login-widget>
       </header>
 
       <main>
@@ -97,16 +97,17 @@ class Comp2110Portal extends LitElement {
           <widget-block header="Weather Forecast"></widget-block>
           <widget-block header="Public Holiday"></widget-block>
         </widget-column>
-        <blog-block></blog-block>       
+        <calculator-web-component></calculator-web-component>
+        <meme-pic></meme-pic>
         <widget-column>
-          <ad-widget></ad-widget>
           <music-widget></music-widget>
-          <widget-block header="Fifth Widget"></widget-block>
+          <anon-files></anon-files>
+          <persistent-textarea></persistent-textarea>
         </widget-column>
       </main>
 
       <p class="app-footer">
-        A product of the COMP2110 Web Development Collective &copy; 2023
+        Long Trinh &copy; 2023
       </p>
     `;
   }

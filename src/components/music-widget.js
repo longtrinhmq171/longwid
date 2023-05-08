@@ -17,8 +17,7 @@ class MusicWidget extends LitElement {
 
         </style>
         <h3>♫ Chill Music ♫</h3>
-        <h4>Source: <a href="http://de-hz-fal-stream07.rautemusik.fm/study">rautemusik.fm</a></h4>
-        <embed width="200" height="50" src="http://de-hz-fal-stream07.rautemusik.fm/study"></embed>
+        <iframe width="250" height="250" src="https://www.youtube.com/embed/jfKfPfyJRdk" frameborder="0" allow="autoplay"></iframe>
       `;
     }
   }
