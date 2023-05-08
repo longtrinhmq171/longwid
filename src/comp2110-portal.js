@@ -4,9 +4,11 @@ import './components/widget-column.js';
 import './components/currency-converter.js';
 import './components/music-widget.js';
 import './components/calculator-web-component.js';
-import './components/memee.js';
+import './components/dog-pic.js';
 import './components/anonfiles.js';
 import './components/persistent-textarea.js';
+import './components/world-clock.js';
+import './components/weather-forecast.js';
 
 class Comp2110Portal extends LitElement {
   static properties = {
@@ -39,6 +41,7 @@ class Comp2110Portal extends LitElement {
     }
 
     header {
+      width: 100%;
       background-image: url(https://i.ibb.co/rvL6zQK/website-development.jpg);
       background-size: cover;
       padding: 10px;
@@ -48,10 +51,10 @@ class Comp2110Portal extends LitElement {
     h1 {
       margin: auto;
       padding: 10px;
-      font-size: 50px;
+      font-size: 40px;
       color: black;
       background-color: rgba(240, 248, 255, 0.8);
-      width: 450px;
+      width: 300px;
       border-radius: 50px;
     }
 
@@ -71,13 +74,38 @@ class Comp2110Portal extends LitElement {
       background-color: aliceblue;
       border: 2px solid black;
       border-radius: 10px;
-      width: 700px;
+      width: 90%;
     }
     #fileUp {
       border: 1px solid black;
       padding: 10px;
       margin: auto;
     }
+
+    main {
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+    main {
+      flex-direction: row;
+    }
+  }
+
+  widget-column {
+    margin: 5px;
+    background-color: #6eff995f;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px black solid;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    widget-column {
+      width: auto;
+    }
+  }
   `;
 
   constructor() {
@@ -94,15 +122,16 @@ class Comp2110Portal extends LitElement {
       <main>
         <widget-column>
           <currency-convert-widget></currency-convert-widget>
-          <widget-block header="Weather Forecast"></widget-block>
+          <weather-forecast></weather-forecast>
           <widget-block header="Public Holiday"></widget-block>
         </widget-column>
         <calculator-web-component></calculator-web-component>
-        <meme-pic></meme-pic>
+        <dog-pic></dog-pic>
         <widget-column>
           <music-widget></music-widget>
           <anon-files></anon-files>
           <persistent-textarea></persistent-textarea>
+          <world-clocks></world-clocks>
         </widget-column>
       </main>
 

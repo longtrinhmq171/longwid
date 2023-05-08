@@ -8,16 +8,15 @@ class MusicWidget extends LitElement {
             background-color: azure;
             display: block;
             border: 1px solid black;
-            margin: 10px 0;
-            border-radius: 10px;
           }
-          embed {
-            border-radius: 80px;
+          iframe {
+            width: 250px;
+            height: 250px;
           }
 
         </style>
         <h3>♫ Chill Music ♫</h3>
-        <iframe width="250" height="250" src="https://www.youtube.com/embed/jfKfPfyJRdk" frameborder="0" allow="autoplay"></iframe>
+        <iframe width="200" height="200" src="https://www.youtube.com/embed/jfKfPfyJRdk" frameborder="0" allow="autoplay"></iframe>
       `;
     }
   }

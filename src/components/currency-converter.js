@@ -18,6 +18,8 @@ class CurrencyConvertWidget extends LitElement {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    width: 250px;
+    margin: auto;
   }
 `;
 

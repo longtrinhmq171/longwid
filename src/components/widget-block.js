@@ -8,13 +8,23 @@ class WidgetBlock extends LitElement {
   }
 
   static styles = css`
+  :host {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: azure;
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: 768px) {
     :host {
-        display: block;
-        width: 250px;
-        height: 250px;
-        background-color: azure;
+      width: 250px;
+      height: 250px;
+      margin-bottom: 0;
     }
-  `;
+  }
+`;
+
 
   constructor() {
     super();
@@ -22,10 +32,7 @@ class WidgetBlock extends LitElement {
   }
 
   render() {
-    if(this.header == 'Weather Forecast') {
-      return html`
-        <weather-forecast></weather-forecast>
-    `;} else if(this.header == 'Public Holiday'){
+    if(this.header == 'Public Holiday'){
       return html`
         <next-public-holiday></next-public-holiday>
       `;

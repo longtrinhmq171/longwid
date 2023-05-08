@@ -8,7 +8,8 @@ class weatherForecastWidget extends LitElement {
             _time: {type: Object},
             _classDay: {type: Object},
             _current_weather: {state: true},
-            _location: {state: true}
+            _location: {state: true},
+            _address: { state: true },
         };
     }
 
@@ -16,8 +17,9 @@ class weatherForecastWidget extends LitElement {
         :host {
             display: block;
             width: 250px;
-            height: 250px;
+            height: 300px;
             filter: drop-shadow(4px 4px 4px #A4BBFF);
+            margin: auto;
         }
 
         h3 {
@@ -28,19 +30,23 @@ class weatherForecastWidget extends LitElement {
             padding: 5px;
         }
         .day {
+          margin: auto;
             display: block;
             width: 250px;
-            height: 250px;
+            height: 300px;
             padding-top: 5px;
             background-image: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTExZDcyYTM3NzAxZWJlY2YxYTI2MGM1N2U2OGE4OWJkYzFlYjc1NCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/0H0IfQ56Bj240DIMtC/giphy.gif);
-        }
+            background-size: cover;
+          }
         .night {
+          margin: auto;
             display: block;
             width: 250px;
-            height: 250px;
+            height: 300px;
             padding-top: 5px;
             background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDM0ODEwOGM2NDYxNDQ0YTJlMmYwNjAxYTAxZjg0MjBkYzc3ZTg2NiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/ZljqVe4iBAS1DHsmEM/giphy.gif);
-        }
+            background-size: cover;
+          }
         p {
             font-size: 18px;
             text-align: center;
@@ -58,6 +64,7 @@ class weatherForecastWidget extends LitElement {
         super();
         this.getLocation();
         this._current_weather = {};
+        this._address = '';
     }
     
     getLocation() {
@@ -73,7 +80,7 @@ class weatherForecastWidget extends LitElement {
             navigator.geolocation.getCurrentPosition((loc) => {
                     this.latitude = loc.coords.latitude;
                     this.longitude = loc.coords.longitude;
-                    this._location = "your location";
+                    this.getAddress(this.latitude, this.longitude);
                     this.getWeather();
             },
                 errorCallback
@@ -82,6 +89,28 @@ class weatherForecastWidget extends LitElement {
             errorCallback();
         }
     }
+
+    getAddress(latitude, longitude) {
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.address) {
+              const cityComponent = data.address.city || data.address.town || data.address.village || data.address.suburb || data.address.county || data.address.state;
+              if (cityComponent) {
+                this._address = cityComponent;
+              } else {
+                this._address = 'Unknown location';
+              }
+            } else {
+              this._address = 'Unknown location';
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            this._address = 'Unknown location';
+          });
+      }
+      
 
     getWeather() {
         fetch("https://api.open-meteo.com/v1/forecast?latitude=" + this.latitude + "&longitude=" + this.longitude + "&current_weather=true")
@@ -97,15 +126,21 @@ class weatherForecastWidget extends LitElement {
     }
 
     render() {
+        const currentTime = new Date().toLocaleTimeString(undefined, {
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+      
         return html`
-            <div class=${this._classDay}>
-                <h3>Current Weather at ${this._location}</h3>
-                <p id="temperature">Temperature: ${this._current_weather.temperature}&#8451; / ${((this._current_weather.temperature)*9/5 + 32).toFixed(1)}&#8457;</p>
-                <p id="windspeed">Wind Speed: ${this._current_weather.windspeed} km/h</p>
-                <p id="localdate">Local Date: ${this._time}</p>
-            </div>
+          <div class=${this._classDay}>
+            <h3>Current Weather at ${this._address}</h3>
+            <p id="temperature">Temperature: ${this._current_weather.temperature}&#8451; / ${((this._current_weather.temperature)*9/5 + 32).toFixed(1)}&#8457;</p>
+            <p id="windspeed">Wind Speed: ${this._current_weather.windspeed} km/h</p>
+            <p id="localdate">Local Date: ${this._time}</p>
+            <p id="localtime">Local Time: ${currentTime}</p>
+          </div>
         `;
-    }
+    }      
 }
 
 customElements.define('weather-forecast', weatherForecastWidget);

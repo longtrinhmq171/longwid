@@ -10,10 +10,10 @@ class CalculatorWebComponent extends HTMLElement {
       template.innerHTML = `
         <style>
             *{
-                margin: 0px;
+                margin: auto;
                 padding: 0;
                 font-family: 'Poppins', sans-serif;
-                box-sizing: border-box;
+                box-sizing: border-box;   
             }
             
             .container{
@@ -60,48 +60,79 @@ class CalculatorWebComponent extends HTMLElement {
             form input.operator{
                 color: #33ffd8;
             }
-        </style>
+            .container {
+              width: 100%;
+              height: auto;
+              padding: 0;
+            }
         
-        <div class="container">
-            <div class="calculator">
-            <h3 style = "color: white">Calculator</h3>
-            <form>
-                <div class="display">
-                <input type="text" name="display">
-                </div>
-                <div>
-                <input type="button" value="AC" class="operator">
-                <input type="button" value="DE" class="operator">
-                <input type="button" value="." class="operator">
-                <input type="button" value="/" class="operator">
-                </div>
-                <div>
-                <input type="button" value="7">
-                <input type="button" value="8">
-                <input type="button" value="9">
-                <input type="button" value="*" class="operator">
-                </div>
-                <div>
-                <input type="button" value="4">
-                <input type="button" value="5">
-                <input type="button" value="6">
-                <input type="button" value="-" class="operator">
-                </div>
-                <div>
-                <input type="button" value="1">
-                <input type="button" value="2">
-                <input type="button" value="3">
-                <input type="button" value="+" class="operator">
-                </div>
-                <div>
-                <input type="button" value="00">
-                <input type="button" value="0">
-                <input type="button" value="=" class="equal operator">
-                </div>
-            </form>
-            </div>
-        </div>
-      `;
+            .calculator {
+              width: 100%;
+              max-width: 450px;
+            }
+        
+            form .display, form .row {
+              display: flex;
+              justify-content: space-between;
+            }
+
+            .row {
+              margin-top: 5px;
+            }
+        
+            form input[type="button"] {
+              flex: 1;
+              margin: 0 10px;
+            }
+        
+            @media (min-width: 768px) {
+              .container {
+                height: 100vh;
+              }
+            }
+          </style>
+        
+          <!-- Update the HTML structure by wrapping button groups with "row" divs -->
+          <div class="container">
+              <div class="calculator">
+              <h3 style = "color: white">Calculator</h3>
+              <form>
+                  <div class="display">
+                  <input type="text" name="display">
+                  </div>
+                  <div class="row">
+                  <input type="button" value="AC" class="operator">
+                  <input type="button" value="DE" class="operator">
+                  <input type="button" value="." class="operator">
+                  <input type="button" value="/" class="operator">
+                  </div>
+                  <div class="row">
+                  <input type="button" value="7">
+                  <input type="button" value="8">
+                  <input type="button" value="9">
+                  <input type="button" value="*" class="operator">
+                  </div>
+                  <div class="row">
+                  <input type="button" value="4">
+                  <input type="button" value="5">
+                  <input type="button" value="6">
+                  <input type="button" value="-" class="operator">
+                  </div>
+                  <div class="row">
+                  <input type="button" value="1">
+                  <input type="button" value="2">
+                  <input type="button" value="3">
+                  <input type="button" value="+" class="operator">
+                  </div>
+                  <div class="row">
+                  <input type="button" value="00">
+                  <input type="button" value="0">
+                  <input type="button" value="=" class="equal operator">
+                  </div>
+              </form>
+              </div>
+          </div>
+        `;
   
       // Attach the template to the shadow root
       this.shadowRoot.appendChild(template.content.cloneNode(true));
