@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import './fish-tank.js'
 
 class DogPic extends LitElement {
   static get properties() {
@@ -11,7 +12,6 @@ class DogPic extends LitElement {
   :host {
   display: block;
   width: 100%;
-  max-height: 1000px;
   margin: 5px;
   overflow: hidden;
 }
@@ -78,6 +78,7 @@ button:hover {
       return html`<h2>Loading...</h2>`
     } else {
       return html`
+      <fish-tank-widget></fish-tank-widget>
         <h3>Cute dogs picture</h3>
         <h4>Click the picture to change picture</h4>
         <div class="image-container">

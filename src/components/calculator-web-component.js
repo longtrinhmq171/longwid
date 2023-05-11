@@ -1,3 +1,4 @@
+import './physics-widget.js'
 class CalculatorWebComponent extends HTMLElement {
     constructor() {
       super();
@@ -9,25 +10,36 @@ class CalculatorWebComponent extends HTMLElement {
       const template = document.createElement('template');
       template.innerHTML = `
         <style>
-            *{
-                margin: auto;
-                padding: 0;
-                font-family: 'Poppins', sans-serif;
-                box-sizing: border-box;   
-            }
-            
-            .container{
-                width: 450px;
-                height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .calculator{
-                background: #3a4452;
-                padding: 20px;
-                border-radius: 10px;
-            }
+    * {
+      margin: auto;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 0;
+      min-height: auto;
+      box-sizing: border-box;
+    }
+    
+    physics-widget {
+      margin: 0;
+      padding: 0;
+    }
+    
+    
+    .calculator {
+      background: #3a4452;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
             .calculator form input{
                 border: 0;
                 outline: 0;
@@ -45,7 +57,7 @@ class CalculatorWebComponent extends HTMLElement {
             form .display{
                 display: flex;
                 justify-content: flex-end;
-                margin: 20px 0;
+                margin: 10px 0;
             }
             form .display input{
                 text-align: right;
@@ -59,16 +71,6 @@ class CalculatorWebComponent extends HTMLElement {
             
             form input.operator{
                 color: #33ffd8;
-            }
-            .container {
-              width: 100%;
-              height: auto;
-              padding: 0;
-            }
-        
-            .calculator {
-              width: 100%;
-              max-width: 450px;
             }
         
             form .display, form .row {
@@ -131,6 +133,7 @@ class CalculatorWebComponent extends HTMLElement {
                   </div>
               </form>
               </div>
+              <physics-widget></physics-widget>
           </div>
         `;
   

@@ -17,7 +17,7 @@ class publicHolidayWidget extends LitElement{
 
     static styles = css`
         #widget{        
-            margin-top: 70px;
+            margin-top: 20px;
             display:grid;
             grid-template-columns: auto;
             width: 100%;

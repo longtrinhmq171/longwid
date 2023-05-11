@@ -9,8 +9,12 @@ import './components/anonfiles.js';
 import './components/persistent-textarea.js';
 import './components/world-clock.js';
 import './components/weather-forecast.js';
+import './components/random-number-generator.js';
+import './components/random-word-widget-datamuse.js';
+import './components/matter-wrapper.js';
+import './components/basketball-game.js';
 
-class Comp2110Portal extends LitElement {
+class LongWid extends LitElement {
   static properties = {
     header: { type: String },
   }
@@ -90,6 +94,12 @@ class Comp2110Portal extends LitElement {
     main {
       flex-direction: row;
     }
+    widget-block {
+      margin: auto;
+    }
+    world-clocks {
+      margin-bottom: 10px;
+    }
   }
 
   widget-column {
@@ -106,6 +116,8 @@ class Comp2110Portal extends LitElement {
       width: auto;
     }
   }
+
+  
   `;
 
   constructor() {
@@ -124,6 +136,8 @@ class Comp2110Portal extends LitElement {
           <currency-convert-widget></currency-convert-widget>
           <weather-forecast></weather-forecast>
           <widget-block header="Public Holiday"></widget-block>
+          <random-number-generator></random-number-generator>
+          <basket-ball></basket-ball>
         </widget-column>
         <calculator-web-component></calculator-web-component>
         <dog-pic></dog-pic>
@@ -132,6 +146,7 @@ class Comp2110Portal extends LitElement {
           <anon-files></anon-files>
           <persistent-textarea></persistent-textarea>
           <world-clocks></world-clocks>
+          <random-word-widget-datamuse></random-word-widget-datamuse>
         </widget-column>
       </main>
 
@@ -142,4 +157,4 @@ class Comp2110Portal extends LitElement {
   }
 }
 
-customElements.define('comp2110-portal', Comp2110Portal);
+customElements.define('long-wid', LongWid);

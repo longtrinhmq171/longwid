@@ -22,18 +22,24 @@ class AnonFiles extends LitElement {
       p {
         margin-bottom: 0;
       }
+      .loading {
+        color: gray;
+        font-style: italic;
+      }
     `;
   }
 
   static get properties() {
     return {
       fileUrl: { type: String },
+      isLoading: { type: Boolean },
     };
   }
 
   constructor() {
     super();
     this.fileUrl = 'N/A';
+    this.isLoading = false;
   }
 
   render() {
@@ -42,6 +48,7 @@ class AnonFiles extends LitElement {
         <h3>Upload File To Get Link (FILE.IO)</h3>
         <input type="file" id="fileInput" @change=${this.handleFileChange}>
         <p>File URL: <a href="${this.fileUrl}">${this.fileUrl}</a></p>
+        ${this.isLoading ? html`<p class="loading">Uploading...</p>` : ''}
       </div>
     `;
   }
@@ -51,6 +58,8 @@ class AnonFiles extends LitElement {
 
     const formData = new FormData();
     formData.append('file', file);
+
+    this.isLoading = true;
 
     fetch('https://file.io/', {
       method: 'POST',
@@ -63,6 +72,9 @@ class AnonFiles extends LitElement {
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        this.isLoading = false;
       });
   }
 }
