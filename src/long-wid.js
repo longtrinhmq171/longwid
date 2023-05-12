@@ -50,6 +50,7 @@ class LongWid extends LitElement {
       background-size: cover;
       padding: 10px;
       filter: drop-shadow(2px 2px 2px #A4BBFF);
+      margin-bottom: 10px;
     }
     
     h1 {

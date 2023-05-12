@@ -23,8 +23,8 @@ class CalculatorWebComponent extends HTMLElement {
       align-items: center;
       justify-content: flex-start;
       width: 100%;
-      padding: 0;
-      min-height: auto;
+      padding: 20px;
+      min-height: 100%;
       box-sizing: border-box;
     }
     
@@ -32,7 +32,6 @@ class CalculatorWebComponent extends HTMLElement {
       margin: 0;
       padding: 0;
     }
-    
     
     .calculator {
       background: #3a4452;

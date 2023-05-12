@@ -6,19 +6,36 @@ class FishTankWidget extends HTMLElement {
       const template = document.createElement("template");
       template.innerHTML = `
         <style>
-          .fish-tank {
-            margin: auto;
-            position: relative;
-            width: 90%;
-            height: 300px;
-            border: 5px solid black;
-            border-top: none;
-            margin-top: 10px;
-            overflow: hidden;
-            //background-color: #3db8ff;
-            background-image: url(https://i.redd.it/7vs0e5boklny.gif);
-            background-size: cover;
-          }
+        .fish-tank {
+          margin: auto;
+          position: relative;
+          width: 90%;
+          height: 300px; /* Increase the height by 10px */
+          border: 5px solid black;
+          border-top: none;
+          margin-top: 10px;
+          overflow: visible;
+          background-image: url(https://i.redd.it/7vs0e5boklny.gif);
+          background-size: cover;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+        
+        :host {
+          display: block;
+          margin-top: 30px; /* Adjust the margin-top value to position the entire widget */
+        }
+        
+        .corgi {
+          background-image: url(https://64.media.tumblr.com/7121d581f292b50843cd7f70d91dd9ef/tumblr_mqq95egk7E1qcqqqjo1_500.gif);
+          background-size: 50%;
+          background-repeat: no-repeat;
+          width: 120px;
+          height: 120px;
+          margin-top: -40px; /* Adjust the margin-top value to position the corgi */
+        }
+        
           .fish {
             position: absolute;
             width: 50px;
@@ -27,40 +44,55 @@ class FishTankWidget extends HTMLElement {
             background-size: contain;
           }
           .fish-1 {
-            background-image: url("https://bestanimations.com/media/fish/308173182clownfishanimation-28.gif");
+            background-image: url("../med/6.gif");
           }
           .fish-2 {
-            background-image: url("https://i.gifer.com/origin/48/48b104295655cf0908ea58ba723232ac_w200.gif");
+            background-image: url("../med/2.gif");
           }
           .fish-3 {
-            background-image: url("https://thumbs.gfycat.com/HonorableHighlevelAnt-size_restricted.gif");
+            background-image: url("../med/3.gif");
             width: 120px;
             height: 120px;
           }
           .fish-4 {
-            background-image: url("https://pa1.narvii.com/6419/c2c784cb345428ef49f4daad6ae60088d4dac42c_hq.gif");
+            background-image: url("../med/4.gif");
             width: 70px;
             height: 70px;
           }
           .fish-5 {
-            background-image: url("https://i.redd.it/6aw132fqmsw71.gif");
+            background-image: url("../med/5.gif");
             width: 170px;
             height: 170px;
           }
           .fish-6 {
-            background-image: url("https://bestanimations.com/media/fish/308173182clownfishanimation-28.gif");
+            background-image: url("../med/6.gif");
             width: 20px;
             height: 20px;
           }
           .fish-7 {
-            background-image: url("https://bestanimations.com/media/fish/308173182clownfishanimation-28.gif");
+            background-image: url("../med/6.gif");
             width: 40px;
             height: 40px;
           }
           .fish-8 {
-            background-image: url("https://pa1.narvii.com/6419/c2c784cb345428ef49f4daad6ae60088d4dac42c_hq.gif");
+            background-image: url("../med/4.gif");
             width: 100px;
             height: 100px;
+          }
+          .fish-9 {
+            background-image: url("../med/9.gif");
+            width: 30px;
+            height: 30px;
+          }
+          .fish-10 {
+            background-image: url("../med/10.gif");
+            width: 60px;
+            height: 60px;
+          }
+          .fish-11 {
+            background-image: url("../med/11.gif");
+            width: 40px;
+            height: 40px;
           }
           .fish.flip-horizontal {
             transform: scaleX(-1);
@@ -71,23 +103,36 @@ class FishTankWidget extends HTMLElement {
             left: 0;
             width: 100%;
             height: 200px;
-            background-repeat: cover;
-            background-image: url("https://img1.picmix.com/output/stamp/normal/3/2/3/5/775323_2a4de.gif");
+            background-repeat: no-repeat;
+            background-image: url(../med/sw.gif);
           }
           .crab {
-            background-image: url("https://i.gifer.com/4NOV.gif");
+            background-image: url("../med/crab.gif");
             background-size: 50%;
             background-repeat: no-repeat;
             width: 100px;
             height: 50px;
-            bottom: -30px;
+            bottom: -26px;
             left: 20px;
             position: absolute;
           }
+
+          .hermit {
+            background-image: url("../med/hermit.webp");
+            background-size: 30%;
+            background-repeat: no-repeat;
+            width: 100px;
+            height: 50px;
+            bottom: -20px;
+            left: 300px;
+            position: absolute;
+          }
+             
           
         </style>
         <div class="fish-tank">
-            <div class="seaweed"></div>
+        <div class="corgi"></div>
+          <div class="seaweed"></div>
           <div class="fish fish-1"></div>
           <div class="fish fish-2"></div>
           <div class="fish fish-3"></div>
@@ -96,7 +141,11 @@ class FishTankWidget extends HTMLElement {
           <div class="fish fish-6"></div>
           <div class="fish fish-7"></div>
           <div class="fish fish-8"></div>
+          <div class="fish fish-9"></div>
+          <div class="fish fish-10"></div>
+          <div class="fish fish-11"></div>
           <div class="crab"></div>
+          <div class="hermit"></div>
         </div>
       `;
   

@@ -7,7 +7,7 @@ class PhysicsWidget extends LitElement {
         display: block;
         position: relative;
         width: 100%;
-        height: 400px;
+        height: 200px;
         border: 1px solid black;
         overflow: hidden;
       }
