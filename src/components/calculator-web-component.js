@@ -24,11 +24,11 @@ class CalculatorWebComponent extends HTMLElement {
       justify-content: flex-start;
       width: 100%;
       padding: 20px;
-      min-height: 100%;
+      min-height: 100px;
       box-sizing: border-box;
     }
     
-    physics-widget {
+    physics-widget{
       margin: 0;
       padding: 0;
     }

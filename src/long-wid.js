@@ -4,7 +4,6 @@ import './components/widget-column.js';
 import './components/currency-converter.js';
 import './components/music-widget.js';
 import './components/calculator-web-component.js';
-import './components/dog-pic.js';
 import './components/anonfiles.js';
 import './components/persistent-textarea.js';
 import './components/world-clock.js';
@@ -13,6 +12,8 @@ import './components/random-number-generator.js';
 import './components/random-word-widget-datamuse.js';
 import './components/matter-wrapper.js';
 import './components/basketball-game.js';
+import './components/dog-widget.js'
+import './components/fish-tank.js'
 
 class LongWid extends LitElement {
   static properties = {
@@ -141,13 +142,14 @@ class LongWid extends LitElement {
           <basket-ball></basket-ball>
         </widget-column>
         <calculator-web-component></calculator-web-component>
-        <dog-pic></dog-pic>
+        <fish-tank-widget></fish-tank-widget>
         <widget-column>
           <music-widget></music-widget>
           <anon-files></anon-files>
           <persistent-textarea></persistent-textarea>
           <world-clocks></world-clocks>
           <random-word-widget-datamuse></random-word-widget-datamuse>
+          <dog-widget></dog-widget>
         </widget-column>
       </main>
 

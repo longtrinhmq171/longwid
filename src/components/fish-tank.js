@@ -23,8 +23,14 @@ class FishTankWidget extends HTMLElement {
         }
         
         :host {
+          width: 100%;
           display: block;
           margin-top: 30px; /* Adjust the margin-top value to position the entire widget */
+        }
+        @media (min-width: 768px) {
+          :host {
+            width: 560px;
+          }
         }
         
         .corgi {
@@ -153,80 +159,71 @@ class FishTankWidget extends HTMLElement {
     }
   
     connectedCallback() {
-        const fishes = this.shadowRoot.querySelectorAll(".fish");
-        const fishTank = this.shadowRoot.querySelector(".fish-tank");
-      
-        fishes.forEach((fish) => {
-          let targetX = Math.random() * (fishTank.offsetWidth - fish.offsetWidth);
-          let targetY = Math.random() * (fishTank.offsetHeight - fish.offsetHeight);
-      
-          // Randomly adjust targetX and targetY to spawn fish in different locations
-          targetX += Math.random() * 50 - 25;
-          targetY += Math.random() * 50 - 25;
-      
-          const initialX = targetX; // Use targetX as initialX
-          const initialY = targetY; // Use targetY as initialY
-          const maxDist = 50; // Maximum distance from initial position
-      
-          let idleCounter = 0; // Counter for idle time
-          const idleTime = 100; // Number of intervals before fish starts moving again
-          let isIdle = false; // Flag for idle mode
-      
-          const moveFish = () => {
-            if (isIdle) {
-                idleCounter++;
-                if (idleCounter >= idleTime) {
-                    // Reset targets and exit idle mode
-                    targetX = Math.random() * (fishTank.offsetWidth - fish.offsetWidth);
-                    targetY = Math.random() * (fishTank.offsetHeight - fish.offsetHeight);
-                    // Randomly adjust targetX and targetY to spawn fish in different locations
-                    targetX += Math.random() * 50 - 25;
-                    targetY += Math.random() * 50 - 25;
-                    isIdle = false;
-                    idleCounter = 0;
-                }
-                return; // Don't move fish during idle mode
+      const fishes = this.shadowRoot.querySelectorAll(".fish");
+      const fishTank = this.shadowRoot.querySelector(".fish-tank");
+    
+      fishes.forEach((fish) => {
+        let targetX = Math.random() * (fishTank.offsetWidth - fish.offsetWidth);
+        let targetY = Math.random() * (fishTank.offsetHeight - fish.offsetHeight);
+    
+        const initialX = targetX; // Use targetX as initialX
+        const initialY = targetY; // Use targetY as initialY
+        const maxDist = 50; // Maximum distance from initial position
+    
+        let idleCounter = 0; // Counter for idle time
+        const idleTime = 100; // Number of intervals before fish starts moving again
+        let isIdle = false; // Flag for idle mode
+    
+        const moveFish = () => {
+          if (isIdle) {
+            idleCounter++;
+            if (idleCounter >= idleTime) {
+              // Reset targets and exit idle mode
+              targetX = Math.random() * (fishTank.offsetWidth - fish.offsetWidth);
+              targetY = Math.random() * (fishTank.offsetHeight - fish.offsetHeight);
+              isIdle = false;
+              idleCounter = 0;
             }
-          
-            const dx = targetX - fish.offsetLeft;
-            const dy = targetY - fish.offsetTop;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const initialDist = Math.sqrt((targetX - initialX) ** 2 + (targetY - initialY) ** 2);
-        
-            // Update CSS class based on direction of movement
-            if (dx < 0) {
-                fish.classList.remove("flip-horizontal");
-            } else {
-                fish.classList.add("flip-horizontal");
-            }
-        
-            if (dist > 1) {
-                const interpX = fish.offsetLeft + (dx / dist);
-                const interpY = fish.offsetTop + (dy / dist);
-                fish.style.left = `${interpX}px`;
-                fish.style.top = `${interpY}px`;
-            } else {
-                targetX = Math.random() * (fishTank.offsetWidth - fish.offsetWidth);
-                targetY = Math.random() * (fishTank.offsetHeight - fish.offsetHeight);
-                // Randomly adjust targetX and targetY to spawn fish in different locations
-                targetX += Math.random() * 50 - 25;
-                targetY += Math.random() * 50 - 25;
-                isIdle = true; // Enter idle mode
-            }
-        
-            if (initialDist < maxDist && dist > initialDist) {
-                targetX = initialX;
-                targetY = initialY;
-            }
-            
-            // Reduce idleCounter by 1 after each iteration of moveFish()
-            idleCounter = Math.max(0, idleCounter - 1);
-        };        
-                
-      
-          setInterval(moveFish, 50);
-        });
-      }
+            return; // Don't move fish during idle mode
+          }
+    
+          const dx = targetX - fish.offsetLeft;
+          const dy = targetY - fish.offsetTop;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const initialDist = Math.sqrt((targetX - initialX) ** 2 + (targetY - initialY) ** 2);
+    
+          // Update CSS class based on direction of movement
+          if (dx < 0) {
+            fish.classList.remove("flip-horizontal");
+          } else {
+            fish.classList.add("flip-horizontal");
+          }
+    
+          if (dist > 1) {
+            const interpX = fish.offsetLeft + (dx / dist);
+            const interpY = fish.offsetTop + (dy / dist);
+            fish.style.left = `${interpX}px`;
+            fish.style.top = `${interpY}px`;
+          } else {
+            targetX = Math.random() * (fishTank.offsetWidth - fish.offsetWidth);
+            targetY = Math.random() * (fishTank.offsetHeight - fish.offsetHeight);
+            isIdle = true; // Enter idle mode
+          }
+    
+          if (initialDist < maxDist && dist > initialDist) {
+            targetX = initialX;
+            targetY = initialY;
+          }
+    
+          // Reduce idleCounter by 1 after each iteration of moveFish()
+          idleCounter = Math.max(0, idleCounter - 1);
+        };
+    
+        setInterval(moveFish, 50);
+      });
+    }
+    
+    
                 
     disconnectedCallback() {
         clearInterval(this.intervalId);
