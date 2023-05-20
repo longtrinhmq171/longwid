@@ -39,6 +39,7 @@ class LongWid extends LitElement {
     .app-footer {
       font-size: calc(12px + 0.5vmin);
       align-items: center;
+      margin: auto;
     }
 
     .app-footer a {
@@ -46,7 +47,8 @@ class LongWid extends LitElement {
     }
 
     header {
-      width: 100%;
+      margin: 0 auto;
+      width: 97%;
       background-image: url(https://i.ibb.co/rvL6zQK/website-development.jpg);
       background-size: cover;
       padding: 10px;
@@ -56,7 +58,8 @@ class LongWid extends LitElement {
     
     h1 {
       margin: auto;
-      padding: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
       font-size: 40px;
       color: black;
       background-color: rgba(240, 248, 255, 0.8);
@@ -65,7 +68,6 @@ class LongWid extends LitElement {
     }
 
     widget-column {
-      margin: 5px;
       background-color: #6eff995f;
       border-radius: 20px;
       padding: 10px;
@@ -90,7 +92,15 @@ class LongWid extends LitElement {
 
     main {
     flex-direction: column;
-  }
+    }
+
+    fish-tank-widget {
+      margin: 20px auto;
+    }
+
+    calculator-web-component {
+      margin: 0 auto;
+    }
 
   @media (min-width: 768px) {
     main {

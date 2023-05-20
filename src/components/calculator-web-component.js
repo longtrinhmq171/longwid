@@ -1,4 +1,3 @@
-import './physics-widget.js'
 class CalculatorWebComponent extends HTMLElement {
     constructor() {
       super();
@@ -37,7 +36,7 @@ class CalculatorWebComponent extends HTMLElement {
       background: #3a4452;
       padding: 20px;
       border-radius: 10px;
-      margin: 20px 0;
+      margin: 0;
     }
             .calculator form input{
                 border: 0;

@@ -8,6 +8,8 @@ class MusicWidget extends LitElement {
             background-color: azure;
             display: block;
             border: 1px solid black;
+            width: 90%;
+            margin: auto;
           }
           iframe {
             width: 250px;

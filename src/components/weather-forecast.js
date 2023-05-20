@@ -65,6 +65,7 @@ class weatherForecastWidget extends LitElement {
         this.getLocation();
         this._current_weather = {};
         this._address = '';
+        setInterval(() => this.getLocation(), 30000);
     }
     
     getLocation() {
@@ -116,7 +117,6 @@ class weatherForecastWidget extends LitElement {
         fetch("https://api.open-meteo.com/v1/forecast?latitude=" + this.latitude + "&longitude=" + this.longitude + "&current_weather=true")
             .then(response => response.json())
             .then(weather => {
-                console.log('callback', weather);
                 this._current_weather = weather.current_weather;
                 this._time = this._current_weather.time.substring(0, 10);
                 if(this._current_weather.is_day != 1) {

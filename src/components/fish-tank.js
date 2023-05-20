@@ -15,7 +15,7 @@ class FishTankWidget extends HTMLElement {
           border-top: none;
           margin-top: 10px;
           overflow: visible;
-          background-image: url(https://i.redd.it/7vs0e5boklny.gif);
+          background-image: url("../med/background.gif");
           background-size: cover;
           display: flex;
           flex-direction: column;
@@ -34,7 +34,7 @@ class FishTankWidget extends HTMLElement {
         }
         
         .corgi {
-          background-image: url(https://64.media.tumblr.com/7121d581f292b50843cd7f70d91dd9ef/tumblr_mqq95egk7E1qcqqqjo1_500.gif);
+          background-image: url("../med/corgi.gif");
           background-size: 50%;
           background-repeat: no-repeat;
           width: 120px;

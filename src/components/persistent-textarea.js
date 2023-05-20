@@ -9,6 +9,10 @@ class PersistentTextarea extends LitElement {
 
   static get styles() {
     return css`
+      :host {
+        width: 90%;
+        margin: auto;
+      }
       .container {
         background-color: azure;
         border-radius: 5px;
@@ -16,7 +20,7 @@ class PersistentTextarea extends LitElement {
       }
       textarea {
         margin: auto;
-        width: 250px;
+        width: 80%;
         height: 200px;
         display: block;
       }
