@@ -1,3 +1,4 @@
+import './world-clock.js'
 class CalculatorWebComponent extends HTMLElement {
     constructor() {
       super();
@@ -37,6 +38,7 @@ class CalculatorWebComponent extends HTMLElement {
       padding: 20px;
       border-radius: 10px;
       margin: 0;
+      margin-bottom: 10px;
     }
             .calculator form input{
                 border: 0;
@@ -131,7 +133,7 @@ class CalculatorWebComponent extends HTMLElement {
                   </div>
               </form>
               </div>
-              <physics-widget></physics-widget>
+              <world-clocks></world-clocks>
           </div>
         `;
   

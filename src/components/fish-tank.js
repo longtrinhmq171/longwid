@@ -131,7 +131,7 @@ class FishTankWidget extends HTMLElement {
             width: 100px;
             height: 50px;
             bottom: -20px;
-            left: 300px;
+            left: 200px;
             position: absolute;
           }
              

@@ -5,30 +5,26 @@ class WorldClock extends HTMLElement {
       this.shadowRoot.innerHTML = `
         <style>
           :host {
-            margin: auto;
-            margin-top: 10px; 
+            background-color: #6eff995f; 
             display: block;
-            background-color: #f0f0f0;
             border-radius: 10px;
-            padding: 15px;
-            max-width: 300px;
+            width: 97%;
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
           }
           p {
-            margin: 0;
+            margin: 5px;
             font-size: 1.1em;
             padding: 4px 0;
             background-color: azure;
-            margin-top: 5px;
-            border: 1px solid
             border-radius: 10px;
+            padding: 5px;
           }
           h3 {
             margin: 0;
-            font-size: 1.3em;
             margin-bottom: 10px;
             text-align: center;
             color: #333;
+            padding: 5px;
           }
         </style>
         <h3>World Clock</h3>

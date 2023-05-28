@@ -8,8 +8,7 @@ class CryptoWidget extends LitElement {
         padding: 5px;
         font-family: Arial, sans-serif;
         margin: auto;
-        background-color: #f0f0f0;
-        border: 1px solid black;
+        background-color: #6eff995f;
         border-radius: 10px;
         box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       }
@@ -48,6 +47,7 @@ class CryptoWidget extends LitElement {
         margin: auto;
         width: 150px;
         border-radius: 5px;
+        font-size: 20px;
       }
       option {
         margin: auto;

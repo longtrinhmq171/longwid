@@ -6,7 +6,6 @@ import './components/music-widget.js';
 import './components/calculator-web-component.js';
 import './components/anonfiles.js';
 import './components/persistent-textarea.js';
-import './components/world-clock.js';
 import './components/weather-forecast.js';
 import './components/random-number-generator.js';
 import './components/random-word-widget-datamuse.js';
@@ -56,6 +55,15 @@ class LongWid extends LitElement {
       filter: drop-shadow(2px 2px 2px #A4BBFF);
       margin-bottom: 10px;
     }
+
+    header p {
+      font-weight: bold;
+      background-color: rgba(240, 248, 255, 0.8);
+      padding: 5px;
+      width: 200px;
+      margin: auto;
+      border-radius: 20px;
+    }
     
     h1 {
       margin: auto;
@@ -77,13 +85,19 @@ class LongWid extends LitElement {
 
     .app-footer {
       margin: auto auto 5px auto;
-      padding: auto;
+      padding: 5px;
       font-size: 20px;
       font-weight: bold;
       background-color: aliceblue;
-      border: 2px solid black;
       border-radius: 10px;
       width: 90%;
+    }
+    .app-footer a {
+      text-decoration: none;
+      color: black;
+    }
+    .app-footer a:hover {
+      color: blue;
     }
     #fileUp {
       border: 1px solid black;
@@ -141,6 +155,7 @@ class LongWid extends LitElement {
     return html`
       <header>
         <h1>${this.header}</h1>
+        <p>Widgets that are useful for Long Trinh</p>
       </header>
 
       <main>
@@ -156,14 +171,14 @@ class LongWid extends LitElement {
           <music-widget></music-widget>
           <anon-files></anon-files>
           <persistent-textarea></persistent-textarea>
-          <world-clocks></world-clocks>
           <random-word-widget-datamuse></random-word-widget-datamuse>
           <dog-widget></dog-widget>
         </widget-column>
       </main>
 
       <p class="app-footer">
-        Long Trinh &copy; 2023
+        Long Trinh &copy; 2023 | 
+        <a href="mailto:trinhquochuylong2@gmail.com">Email: trinhquochuylong2@gmail.com</a>
       </p>
     `;
   }
