@@ -8,8 +8,9 @@ class AnonFiles extends LitElement {
         padding: 5px;
       }
       .container {
-        background-color: azure;
-        border-radius: 5px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         padding: 10px;
       }
       h3 {

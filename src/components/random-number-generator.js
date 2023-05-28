@@ -14,9 +14,10 @@ class RandomNumberGenerator extends LitElement {
       display: block;
       width: 80%;
       padding: 20px;
-      margin: 10px auto;
-      border-radius: 10px;
+      margin: 20px auto;
       background-color: #f0f0f0;
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       text-align: center;
     }
 

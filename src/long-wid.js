@@ -14,6 +14,7 @@ import './components/matter-wrapper.js';
 import './components/basketball-game.js';
 import './components/dog-widget.js'
 import './components/fish-tank.js'
+import './components/crypto-widget.js'
 
 class LongWid extends LitElement {
   static properties = {
@@ -71,7 +72,7 @@ class LongWid extends LitElement {
       background-color: #6eff995f;
       border-radius: 20px;
       padding: 10px;
-      border: 1px black solid;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .app-footer {
@@ -119,7 +120,6 @@ class LongWid extends LitElement {
     background-color: #6eff995f;
     border-radius: 20px;
     padding: 10px;
-    border: 1px black solid;
     width: 100%;
   }
 
@@ -147,7 +147,6 @@ class LongWid extends LitElement {
         <widget-column>
           <currency-convert-widget></currency-convert-widget>
           <weather-forecast></weather-forecast>
-          <widget-block header="Public Holiday"></widget-block>
           <random-number-generator></random-number-generator>
           <basket-ball></basket-ball>
         </widget-column>

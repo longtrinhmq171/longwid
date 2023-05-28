@@ -5,11 +5,13 @@ class MusicWidget extends LitElement {
       return html`
         <style>
           :host {
-            background-color: azure;
             display: block;
-            border: 1px solid black;
             width: 90%;
             margin: auto;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 5px;
           }
           iframe {
             width: 250px;

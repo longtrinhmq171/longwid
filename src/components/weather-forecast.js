@@ -23,7 +23,6 @@ class weatherForecastWidget extends LitElement {
         }
 
         h3 {
-            border: 1px solid black;
             border-radius: 20px;
             background-color: rgba(240, 255, 255, 0.9);
             margin: 4px;

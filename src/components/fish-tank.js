@@ -1,3 +1,4 @@
+import './crypto-widget.js'
 class FishTankWidget extends HTMLElement {
     constructor() {
       super();
@@ -134,6 +135,9 @@ class FishTankWidget extends HTMLElement {
             position: absolute;
           }
              
+          crypto-widget {
+            margin: 10px;
+          }
           
         </style>
         <div class="fish-tank">
@@ -153,6 +157,7 @@ class FishTankWidget extends HTMLElement {
           <div class="crab"></div>
           <div class="hermit"></div>
         </div>
+        <crypto-widget></crypto-widget>
       `;
   
       this.shadowRoot.appendChild(template.content.cloneNode(true));

@@ -43,11 +43,12 @@ class RandomWordWidgetDatamuse extends HTMLElement {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #f0f0f0;
-            border-radius: 10px;
             padding: 5px;
             max-width: 250px;
             margin: 5px auto;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
           }
   
           #word {

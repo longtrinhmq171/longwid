@@ -1,6 +1,4 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-import './weather-forecast.js'
-import './public-holiday-widget.js'
 
 class WidgetBlock extends LitElement {
   static properties = {
@@ -32,11 +30,6 @@ class WidgetBlock extends LitElement {
   }
 
   render() {
-    if(this.header == 'Public Holiday'){
-      return html`
-        <next-public-holiday></next-public-holiday>
-      `;
-    }
   }
 }
 

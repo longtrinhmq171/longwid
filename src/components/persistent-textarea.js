@@ -14,9 +14,11 @@ class PersistentTextarea extends LitElement {
         margin: auto;
       }
       .container {
-        background-color: azure;
         border-radius: 5px;
         padding: 5px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       }
       textarea {
         margin: auto;
